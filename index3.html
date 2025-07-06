@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NONSENSUS | Официальный Discord</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6a5acd; /* Изменен на космический фиолетовый */
+            --dark: #0a0a1a; /* Темный космический фон */
+            --darker: #050510;
+            --light: #e0e0ff; /* Светло-голубой текст */
+            --accent: #00d4ff; /* Неоновый акцент */
+            --neon-glow: 0 0 10px rgba(106, 90, 205, 0.7), 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+       
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(106, 90, 205, 0.1), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(0, 212, 255, 0.1), transparent 30%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="0.5" fill="white"/><circle cx="50" cy="80" r="0.7" fill="white"/><circle cx="80" cy="30" r="0.3" fill="white"/><circle cx="10" cy="60" r="0.4" fill="white"/><circle cx="90" cy="90" r="0.6" fill="white"/></svg>');
+            background-size: 200px 200px;
+        }
+       
+        header {
+            background: linear-gradient(to bottom, rgba(10, 10, 26, 0.9), rgba(5, 5, 16, 0.9));
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--neon-glow);
+            border-bottom: 1px solid rgba(106, 90, 205, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+       
+        .logo {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 8px var(--accent);
+            letter-spacing: 2px;
+        }
+       
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-shadow: 0 0 5px rgba(224, 224, 255, 0.3);
+        }
+       
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+       
+        .discord-widget {
+            background: rgba(5, 5, 16, 0.7);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: var(--neon-glow);
+            border: 1px solid rgba(106, 90, 205, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .discord-widget:hover {
+            transform: translateY(-5px);
+        }
+       
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), #5a4cb1);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 0 15px rgba(106, 90, 205, 0.5);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #5a4cb1, var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(106, 90, 205, 0.8);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+       
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+       
+        .feature-card {
+            background: rgba(5, 5, 16, 0.6);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(106, 90, 205, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+       
+        .feature-card h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: var(--light);
+            opacity: 0.9;
+        }
+       
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(10, 10, 26, 0.9), rgba(5, 5, 16, 0.9));
+            margin-top: 3rem;
+            border-top: 1px solid rgba(106, 90, 205, 0.3);
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        h2 {
+            color: var(--light);
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        /* Анимация для звезд */
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        .star {
+            position: fixed;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Динамические звезды -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 2 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                document.body.appendChild(star);
+            }
+        });
+    </script>
+
+    <header>
+        <div class="logo">NONSENSUS</div>
+        <div class="tagline">Сервер, для общения, где ты сможешь прекрасно провести время!</div>
+    </header>
+   
+    <div class="container">
+        <div class="discord-widget">
+            <h2>Присоединяйся к нашему сообществу</h2>
+            <p>Общайся, играй и создавай безумные проекты вместе с нами</p>
+            <a href="https://discord.gg/nonsensus" class="btn">Присоединиться к Discord</a>
+        </div>
+       
+        <h2>Почему стоит зайти?</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>🤪 Абсурдные обсуждения</h3>
+                <p>От философских дискуссий до полного бреда - у нас есть всё</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎮 Игровые ивенты</h3>
+                <p>Регулярные совместные игры в Garry's Mod, Hearts Of Iron IV и другие</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎭 Ролевые каналы</h3>
+                <p>Специальные пространства для творческого безумия</p>
+            </div>
+        </div>
+       
+        <div class="discord-widget">
+            <h2>Наши правила</h2>
+            <p>1. С правилами ознакомитесь прямо на сервере!</p>
+            <p>2. Уважай других участников</p>
+            <p>3. Чем абсурднее - тем лучше</p>
+        </div>
+    </div>
+   
+    <footer>
+        <p>© 2024 NONSENSUS Discord Community | Все права защищены</p>
+    </footer>
+</body>
